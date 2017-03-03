@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { 
   Navbar, Nav, NavItem, NavDropdown, MenuItem, Button, Glyphicon, Thumbnail,
-  Grid, Col, Row 
+  Grid, Col, Row,
+  Badge, Image
 } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-import Draggable, {DraggableCore} from 'react-draggable'; // Both at the same time
+import Draggable, { DraggableCore } from 'react-draggable'; // Both at the same time
+import MicroBarChart from 'react-micro-bar-chart';
 
 import logo from './logo.svg';
 import './App.css';
@@ -46,23 +48,39 @@ class App extends Component {
       
 
       <Draggable
-        axis="x"
+        axis="both"
         handle=".handle"
-        defaultPosition={{x: 0, y: 0}}
         position={null}
-        grid={[25, 25]}
         zIndex={100}
         onStart={this.handleStart}
         onDrag={this.handleDrag}
         onStop={this.handleStop}>
-        <Thumbnail src="/assets/thumbnaildiv.png" alt="242x200" className="handle custom-thumbnail">
-          <h3>Thumbnail label</h3>
-          <p>Description</p>
-          <p>
-            <Button bsStyle="primary">Button</Button>&nbsp;
-            <Button bsStyle="default">Button</Button>
-          </p>
-        </Thumbnail>
+        <div className="handle custom-node">
+          <MicroBarChart
+            data={[10, 20, 30, 40, 50]}
+            width="200"
+            height="50"
+            tooltip
+            tipOffset={[0,20]}
+            tipTemplate={(d, i, data) => `value of ${d} at index ${i}, with ${data.length} data points`}
+            hoverColor="rgb(161,130,214)"
+            fillColor="rgb(210,193,237)" />
+            <p>Today's performance <Badge>100%</Badge></p>
+            <h3>Company</h3>
+            <div>
+                <Row className="custom-row">
+                  <Col xs={2} md={2} className="custom-avatar">
+                    <Image src="favicon.ico" thumbnail />
+                  </Col>
+                  <Col xs={2} md={2} className="custom-avatar">
+                    <Image src="favicon.ico" thumbnail />
+                  </Col>
+                  <Col xs={2} md={2} className="custom-avatar">
+                    <Image src="favicon.ico" thumbnail />
+                  </Col>
+                </Row>
+            </div>
+        </div>
       </Draggable>
 
     <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored custom-material-button">

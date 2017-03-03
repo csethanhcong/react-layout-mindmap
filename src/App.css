@@ -33,16 +33,29 @@
 }
 
 .custom-avatar {
-  max-width: 30px;
-  max-height: 30px;
+  padding: 0px;
 }
 
-.custom-thumbnail {
-  max-width: 350px;
+.custom-node {
+  max-width: 300px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 .custom-material-button {
   position: fixed;
   right: 30px;
   bottom: 30px;
+}
+
+/*----------  Custom grid system  ----------*/
+.custom-row {
+  margin-left: 0px;
+  margin-right: 0px;
+
+  transform: translate(25%, 0);
+  text-align: center;
 }
